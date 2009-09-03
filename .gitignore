@@ -1,7 +1,14 @@
-build/*
-.DS_Store
+# Based on http://shanesbrain.net/2008/7/9/using-xcode-with-git
+
+# xcode noise
+build
 *.mode1v3
 *.pbxuser
+
+# SVN
 .svn
+
+# osx noise
+.DS_Store
 profile
 
