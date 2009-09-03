@@ -1,7 +1,9 @@
 # Based on http://shanesbrain.net/2008/7/9/using-xcode-with-git
 
 # xcode noise
-build
+build/*
+QuickComic/build/*
+.DS_Store
 *.mode1v3
 *.pbxuser
 

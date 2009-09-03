@@ -1,5 +1,5 @@
 /*	
-	Copyright (c) 2006 Dancing Tortoise Software
+	Copyright (c) 2006-2009 Dancing Tortoise Software
  
 	Permission is hereby granted, free of charge, to any person 
 	obtaining a copy of this software and associated documentation
@@ -404,24 +404,35 @@ static NSArray * allAvailableStringEncodings(void)
     }
 	
     NSURL * url;
-    NSError * error;
+    NSError * error = nil;
     
 	NSFileManager * fileManager = [NSFileManager defaultManager];
     NSString * applicationSupportFolder = [self applicationSupportFolder];
     if (![fileManager fileExistsAtPath: applicationSupportFolder isDirectory: NULL] )
 	{
-        [fileManager createDirectoryAtPath: applicationSupportFolder attributes: nil];
+		if(![fileManager createDirectoryAtPath: applicationSupportFolder withIntermediateDirectories: YES attributes: nil error: &error])
+		{
+			NSLog(@"%@",[error localizedDescription]);
+		}
     }
 	
 	NSDictionary * storeOptions = [NSDictionary dictionaryWithObject: [NSNumber numberWithBool: YES] 
 															  forKey: NSMigratePersistentStoresAutomaticallyOption];
     url = [NSURL fileURLWithPath: [applicationSupportFolder stringByAppendingPathComponent: @"SimpleComic.sql"]];
 	
-	NSDictionary * storeInfo = [NSPersistentStoreCoordinator metadataForPersistentStoreWithURL: url error: &error];
-    
+	error = nil;
+	NSDictionary * storeInfo = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType: NSSQLiteStoreType URL: url error: &error];
+	if(error)
+	{
+		NSLog(@"%@",[error localizedDescription]);
+	}    
+
 	if(![[storeInfo valueForKey: @"viewVersion"] isEqualToString: @"Version 1704"])
 	{
-		[fileManager removeFileAtPath: [url path] handler: nil];
+		if(![fileManager removeItemAtPath: [url path] error: &error])
+		{
+			NSLog(@"%@",[error localizedDescription]);
+		}
 	}
 	
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
