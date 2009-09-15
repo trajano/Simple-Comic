@@ -129,7 +129,7 @@
 /* Animated GIF method */
 - (void)startAnimationForImage:(NSImage *)image
 {
-    id testImageRep = [image bestRepresentationForDevice: nil];;
+    id testImageRep = [image bestRepresentationForRect: NSZeroRect context: [NSGraphicsContext currentContext] hints: nil];
     int frameCount;
     float frameDuration;
     NSDictionary * animationInfo;
@@ -164,7 +164,7 @@
         return;
     }
     
-    NSBitmapImageRep * testImageRep = (NSBitmapImageRep *)[pageImage bestRepresentationForDevice: nil];;
+    NSBitmapImageRep * testImageRep = (NSBitmapImageRep *)[pageImage bestRepresentationForRect: NSZeroRect context: [NSGraphicsContext currentContext] hints: nil];
     int loopCount = [[animationInfo valueForKey: @"loopCount"] intValue];
     int frameCount = ([[testImageRep valueForProperty: NSImageFrameCount] intValue] - 1);
     int currentFrame = [[testImageRep valueForProperty: NSImageCurrentFrame] intValue];
@@ -971,9 +971,6 @@
 			break;
 		case 27:
 			[[self dataSource] killTopOptionalUIElement];
-			break;
-		case 127:
-			[[self dataSource] removePages: self];
 			break;
 		default:
 			[super keyDown: event];

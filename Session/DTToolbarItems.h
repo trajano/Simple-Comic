@@ -7,16 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "TSSTSessionWindowController.h"
 
-@interface DTToolbarItem : NSToolbarItem
-{
+@interface DTToolbarItem : NSToolbarItem {
 }
 
 @end
 
-
-@interface DTPageTurnToolbarItem : DTToolbarItem
-{
+@interface DTPageTurnToolbarItem : NSToolbarItem {
 }
 
 @end
