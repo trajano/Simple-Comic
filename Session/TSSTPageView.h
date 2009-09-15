@@ -35,12 +35,14 @@
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/QuartzCore.h>
 
+
 typedef struct {
 	float left;
 	float right;
 	float up;
 	float down;
 } direction;
+
 
 @interface TSSTPageView : NSView
 {
@@ -67,6 +69,7 @@ typedef struct {
 	int pageSelection;
 	/* This is the rect describing the users page selection. */
 	NSRect cropRect;
+	BOOL canCrop;
 }
 
 @property (assign) NSInteger rotation;

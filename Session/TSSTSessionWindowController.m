@@ -403,6 +403,7 @@
 }
 
 
+
 - (void)refreshLoupePanel
 {
     BOOL loupe = [[session valueForKey: @"loupe"] boolValue];
@@ -482,7 +483,10 @@
 
 - (IBAction)removePages:(id)sender
 {
+	pageSelectionInProgress = YES;
 	int selection = [pageView selectPageWithCrop: NO];
+	pageSelectionInProgress = NO;
+	
 	if(selection != -1)
 	{
 		int index = [pageController selectionIndex];
@@ -932,7 +936,9 @@
 	/*	selectpage returns prompts the user for which page they wish to use.
 		If there is only one page or the user selects the first page 0 is returned,
 		otherwise 1. */
+	pageSelectionInProgress = YES;
 	int selection = [pageView selectPageWithCrop: NO];
+	pageSelectionInProgress = NO;
 	if(selection != -1)
 	{
 		int index = [pageController selectionIndex];
@@ -1032,9 +1038,9 @@
 	NSString * representationPath;
 	
     BOOL currentAllowed = ![pageOne shouldDisplayAlone] && 
-        !(index == 0 &&[[defaults valueForKey: TSSTLonelyFirstPage] boolValue]);
+        !(index == 0 && [[defaults valueForKey: TSSTLonelyFirstPage] boolValue]);
     
-    if(currentAllowed && [[session valueForKey: TSSTTwoPageSpread] boolValue] && ![pageTwo shouldDisplayAlone])
+    if(currentAllowed && [[session valueForKey: TSSTTwoPageSpread] boolValue] && pageTwo && ![pageTwo shouldDisplayAlone])
     {
         if([[session valueForKey: TSSTPageOrder] boolValue])
         {
@@ -1425,6 +1431,11 @@ images are currently visible and then skips over them.
 
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem
 {
+	if(pageSelectionInProgress)
+	{
+		return NO;
+	}
+	
 	BOOL valid = YES;
     int state;
     if([menuItem action] == @selector(changeFullscreen:))
@@ -1479,6 +1490,18 @@ images are currently visible and then skips over them.
 	else if ([menuItem action] == @selector(skipLeft:))
 	{
 		valid = [self canTurnPageLeft];
+	}
+	else if ([menuItem action] == @selector(setArchiveIcon:))
+	{
+		valid = ![[session valueForKey: TSSTViewRotation] intValue];
+	}
+	else if ([menuItem action] == @selector(extractPage:))
+	{
+		valid = ![[session valueForKey: TSSTViewRotation] intValue];
+	}
+	else if ([menuItem action] == @selector(removePages:))
+	{
+		valid = ![[session valueForKey: TSSTViewRotation] intValue];
 	}
     else if([menuItem tag] == 400)
     {
