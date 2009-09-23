@@ -1282,35 +1282,37 @@
 	{
 			// change full screen mode
 		[NSApp sendAction: @selector(changeFullscreen:) to: nil from: self];
-		return;
+	} 
+	if ([theEvent clickCount] == 1)
+	{
+		NSPoint clickPoint = [theEvent locationInWindow];
+		int viewSplit = NSWidth([[self enclosingScrollView] frame]) / 2;
+		if(NSMouseInRect(clickPoint, [[self enclosingScrollView] frame], [[self enclosingScrollView] isFlipped]))
+		{
+			if(clickPoint.x < viewSplit)
+			{
+				if([theEvent modifierFlags] & NSAlternateKeyMask)
+				{
+					[NSApp sendAction: @selector(shiftPageLeft:) to: nil from: self];
+				}
+				else
+				{
+					[NSApp sendAction: @selector(pageLeft:) to: nil from: self];
+				}
+			}
+			else
+			{
+				if([theEvent modifierFlags] & NSAlternateKeyMask)
+				{
+					[NSApp sendAction: @selector(shiftPageRight:) to: nil from: self];
+				}
+				else
+				{
+					[NSApp sendAction: @selector(pageRight:) to: nil from: self];
+				}
+			}
+		}
 	}
-    NSPoint clickPoint = [theEvent locationInWindow];
-    int viewSplit = NSWidth([[self enclosingScrollView] frame]) / 2;
-    if(NSMouseInRect(clickPoint, [[self enclosingScrollView] frame], [[self enclosingScrollView] isFlipped]))
-    {
-        if(clickPoint.x < viewSplit)
-        {
-            if([theEvent modifierFlags] & NSAlternateKeyMask)
-            {
-                [NSApp sendAction: @selector(shiftPageLeft:) to: nil from: self];
-            }
-            else
-            {
-                [NSApp sendAction: @selector(pageLeft:) to: nil from: self];
-            }
-        }
-        else
-        {
-            if([theEvent modifierFlags] & NSAlternateKeyMask)
-            {
-                [NSApp sendAction: @selector(shiftPageRight:) to: nil from: self];
-            }
-            else
-            {
-                [NSApp sendAction: @selector(pageRight:) to: nil from: self];
-            }
-        }
-    }
 }
 
 
