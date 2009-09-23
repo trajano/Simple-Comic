@@ -1278,7 +1278,12 @@
     {
         [[NSCursor openHandCursor] set];
     }
-	
+	if ([theEvent clickCount] == 2)
+	{
+			// change full screen mode
+		[NSApp sendAction: @selector(changeFullscreen:) to: nil from: self];
+		return;
+	}
     NSPoint clickPoint = [theEvent locationInWindow];
     int viewSplit = NSWidth([[self enclosingScrollView] frame]) / 2;
     if(NSMouseInRect(clickPoint, [[self enclosingScrollView] frame], [[self enclosingScrollView] isFlipped]))
