@@ -6,6 +6,21 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		2CF4BB22106A3AC800B68FF5 /* SimpleComic.dmg */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2CF4BB32106A3AC900B68FF5 /* Build configuration list for PBXAggregateTarget "SimpleComic.dmg" */;
+			buildPhases = (
+				2CF4BB21106A3AC800B68FF5 /* ShellScript */,
+			);
+			dependencies = (
+				2CF4BB3B106A3BC300B68FF5 /* PBXTargetDependency */,
+			);
+			name = SimpleComic.dmg;
+			productName = SimpleComic.dmg;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		28073CB00FF9956600D2602B /* extract.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 28073CAF0FF9956500D2602B /* extract.tiff */; };
 		28073DB00FFB0EED00D2602B /* icon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 28073DAF0FFB0EED00D2602B /* icon.tiff */; };
@@ -115,6 +130,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 28FACCA70CD0CF3E007B7918;
 			remoteInfo = GeneralPrefsPane;
+		};
+		2CF4BB3A106A3BC300B68FF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* Simple Comic */;
+			remoteInfo = "Simple Comic";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -721,6 +743,7 @@
 				28FACC7B0CD03BBB007B7918 /* AdvancedPrefsPane */,
 				28FACCA70CD0CF3E007B7918 /* GeneralPrefsPane */,
 				8D1107260486CEB800E47090 /* Simple Comic */,
+				2CF4BB22106A3AC800B68FF5 /* SimpleComic.dmg */,
 			);
 		};
 /* End PBXProject section */
@@ -794,6 +817,24 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2CF4BB21106A3AC800B68FF5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/Simple Comic.app",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(BUILT_PRODUCTS_DIR)/Simple Comic.dmg",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -ex\n\n[ \"$ACTION\" = build ] || exit 0\n[ \"$BUILD_VARIANTS\" = \"normal\" ] || exit 0\n\ndir=\"$TEMP_FILES_DIR/disk\"\ndmg=\"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.dmg\"\nPROJECT_NAME=\"Simple Comic\"\n\nrm -rf \"$dir\"\nmkdir \"$dir\"\ncp -R \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app\" \"$dir\"\nrm -f \"$dmg\"\nhdiutil create -srcfolder \"$dir\" -volname \"$PROJECT_NAME\" \"$dmg\"\nhdiutil internet-enable -yes \"$dmg\"\nrm -rf \"$dir\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		28FACC790CD03BBB007B7918 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -862,6 +903,11 @@
 			isa = PBXTargetDependency;
 			target = 28FACCA70CD0CF3E007B7918 /* GeneralPrefsPane */;
 			targetProxy = 28FACCAE0CD0CF64007B7918 /* PBXContainerItemProxy */;
+		};
+		2CF4BB3B106A3BC300B68FF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Simple Comic */;
+			targetProxy = 2CF4BB3A106A3BC300B68FF5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1093,6 +1139,34 @@
 			};
 			name = Default;
 		};
+		2CF4BB23106A3AC800B68FF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = SimpleComic.dmg;
+			};
+			name = Debug;
+		};
+		2CF4BB24106A3AC800B68FF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = SimpleComic.dmg;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		2CF4BB25106A3AC800B68FF5 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = SimpleComic.dmg;
+			};
+			name = Default;
+		};
 		FA7257E308A6CDEB006A2A19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1233,6 +1307,16 @@
 				28FACCAB0CD0CF3E007B7918 /* Debug */,
 				28FACCAC0CD0CF3E007B7918 /* Release */,
 				28FACCAD0CD0CF3E007B7918 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		2CF4BB32106A3AC900B68FF5 /* Build configuration list for PBXAggregateTarget "SimpleComic.dmg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CF4BB23106A3AC800B68FF5 /* Debug */,
+				2CF4BB24106A3AC800B68FF5 /* Release */,
+				2CF4BB25106A3AC800B68FF5 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;
