@@ -3,14 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 46;
 	objects = {
+
+/* Begin PBXAggregateTarget section */
+		2CF4BB22106A3AC800B68FF5 /* SimpleComic.dmg */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2CF4BB32106A3AC900B68FF5 /* Build configuration list for PBXAggregateTarget "SimpleComic.dmg" */;
+			buildPhases = (
+				2CF4BB21106A3AC800B68FF5 /* ShellScript */,
+			);
+			dependencies = (
+				2CF4BB3B106A3BC300B68FF5 /* PBXTargetDependency */,
+			);
+			name = SimpleComic.dmg;
+			productName = SimpleComic.dmg;
+		};
+/* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		28073CB00FF9956600D2602B /* extract.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 28073CAF0FF9956500D2602B /* extract.tiff */; };
 		28073DB00FFB0EED00D2602B /* icon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 28073DAF0FFB0EED00D2602B /* icon.tiff */; };
 		28073E610FFC347200D2602B /* QuickComic.qlgenerator in Copy Quicklook plugin */ = {isa = PBXBuildFile; fileRef = 28073E2F0FFC327700D2602B /* QuickComic.qlgenerator */; };
 		280CFF130C48943B0099D111 /* TSSTCRTProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 280CFF110C48943B0099D111 /* TSSTCRTProgressBar.m */; };
+		280E16CF0C52719200FC7439 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 280E16CE0C52719200FC7439 /* Help */; };
 		281314570C0A7D2D00EC007B /* TSSTSessionWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 281314520C0A7D2D00EC007B /* TSSTSessionWindow.nib */; };
 		281314580C0A7D2D00EC007B /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 281314540C0A7D2D00EC007B /* MainMenu.nib */; };
 		2813145B0C0A7D5200EC007B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 281314590C0A7D5200EC007B /* Credits.rtf */; };
@@ -69,7 +85,6 @@
 		28C1D5600DF1FE37003392B4 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C1D55F0DF1FE37003392B4 /* QuickLook.framework */; };
 		28C2FA050DEB559000AB5E35 /* Sessions_DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28C2FA040DEB559000AB5E35 /* Sessions_DataModel.xcdatamodeld */; };
 		28EF3FC00E9970BD002AD2EE /* UKXattrMetadataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EF3FBF0E9970BD002AD2EE /* UKXattrMetadataStore.m */; };
-		28F660461067255600EC8A34 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 28F6603B1067255600EC8A34 /* Help */; };
 		28F998340A1FF52C0047BD97 /* TSSTKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F998320A1FF52C0047BD97 /* TSSTKeyWindow.m */; };
 		28FACB850CD01D93007B7918 /* SS_PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FACB820CD01D93007B7918 /* SS_PrefsController.m */; };
 		28FACC880CD03C49007B7918 /* AdvancedPrefPaneView.nib in Resources */ = {isa = PBXBuildFile; fileRef = 28FACB950CD01FB8007B7918 /* AdvancedPrefPaneView.nib */; };
@@ -116,6 +131,13 @@
 			remoteGlobalIDString = 28FACCA70CD0CF3E007B7918;
 			remoteInfo = GeneralPrefsPane;
 		};
+		2CF4BB3A106A3BC300B68FF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* Simple Comic */;
+			remoteInfo = "Simple Comic";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -153,6 +175,7 @@
 		28073DE20FFC2F8B00D2602B /* QuickComic.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QuickComic.xcodeproj; path = QuickComic/QuickComic.xcodeproj; sourceTree = "<group>"; };
 		280CFF100C48943B0099D111 /* TSSTCRTProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = TSSTCRTProgressBar.h; path = "Custom Controls/TSSTCRTProgressBar.h"; sourceTree = "<group>"; };
 		280CFF110C48943B0099D111 /* TSSTCRTProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = TSSTCRTProgressBar.m; path = "Custom Controls/TSSTCRTProgressBar.m"; sourceTree = "<group>"; };
+		280E168C0C52477300FC7439 /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = English.lproj/Help; sourceTree = "<group>"; };
 		280FB7A50CD577730053F375 /* TSSTCustomValueTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSTCustomValueTransformers.h; sourceTree = "<group>"; };
 		281314530C0A7D2D00EC007B /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/TSSTSessionWindow.nib; sourceTree = "<group>"; };
 		281314550C0A7D2D00EC007B /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
@@ -254,7 +277,6 @@
 		28EF3FBF0E9970BD002AD2EE /* UKXattrMetadataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKXattrMetadataStore.m; sourceTree = "<group>"; };
 		28F59A9A0B784892003530FB /* TSSTSortDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSTSortDescriptor.h; sourceTree = "<group>"; };
 		28F5A5F00B7E0F8B003530FB /* TSSTPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSTPage.h; sourceTree = "<group>"; };
-		28F6603C1067255600EC8A34 /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = English.lproj/Help; sourceTree = "<group>"; };
 		28F998310A1FF52C0047BD97 /* TSSTKeyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSSTKeyWindow.h; path = "Custom Windows/Fullscreen/TSSTKeyWindow.h"; sourceTree = "<group>"; };
 		28F998320A1FF52C0047BD97 /* TSSTKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSSTKeyWindow.m; path = "Custom Windows/Fullscreen/TSSTKeyWindow.m"; sourceTree = "<group>"; };
 		28FA4FA40B8AA28000496668 /* TSSTSessionWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSSTSessionWindowController.h; path = Session/TSSTSessionWindowController.h; sourceTree = "<group>"; };
@@ -554,9 +576,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				28F6603B1067255600EC8A34 /* Help */,
 				288693080FED554E002C6BF7 /* images */,
 				288692F90FED553A002C6BF7 /* icons */,
+				280E16CE0C52719200FC7439 /* Help */,
 				2851C59F0FC8651C002927E0 /* dsa_pub.pem */,
 				28195B410C166DF5001F5E95 /* Info.plist */,
 				281314810C0A7E4900EC007B /* InfoPlist.strings */,
@@ -695,7 +717,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = FA7257E608A6CDEB006A2A19 /* Build configuration list for PBXProject "SimpleComic" */;
-			compatibilityVersion = "Xcode 3.0";
+			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -721,6 +743,7 @@
 				28FACC7B0CD03BBB007B7918 /* AdvancedPrefsPane */,
 				28FACCA70CD0CF3E007B7918 /* GeneralPrefsPane */,
 				8D1107260486CEB800E47090 /* Simple Comic */,
+				2CF4BB22106A3AC800B68FF5 /* SimpleComic.dmg */,
 			);
 		};
 /* End PBXProject section */
@@ -763,6 +786,7 @@
 				2813145B0C0A7D5200EC007B /* Credits.rtf in Resources */,
 				2813145E0C0A7D7900EC007B /* Localizable.strings in Resources */,
 				281314830C0A7E4900EC007B /* InfoPlist.strings in Resources */,
+				280E16CF0C52719200FC7439 /* Help in Resources */,
 				2851C5A00FC8651C002927E0 /* dsa_pub.pem in Resources */,
 				288693010FED553A002C6BF7 /* 7z.icns in Resources */,
 				288693020FED553A002C6BF7 /* cbr.icns in Resources */,
@@ -788,11 +812,28 @@
 				2886932E0FED554E002C6BF7 /* win_scale.tiff in Resources */,
 				28073CB00FF9956600D2602B /* extract.tiff in Resources */,
 				28073DB00FFB0EED00D2602B /* icon.tiff in Resources */,
-				28F660461067255600EC8A34 /* Help in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CF4BB21106A3AC800B68FF5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/Simple Comic.app",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(BUILT_PRODUCTS_DIR)/Simple Comic.dmg",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -ex\n\n[ \"$ACTION\" = build ] || exit 0\n[ \"$BUILD_VARIANTS\" = \"normal\" ] || exit 0\n\ndir=\"$TEMP_FILES_DIR/disk\"\ndmg=\"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.dmg\"\nPROJECT_NAME=\"Simple Comic\"\n\nrm -rf \"$dir\"\nmkdir \"$dir\"\ncp -R \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app\" \"$dir\"\nrm -f \"$dmg\"\nhdiutil create -srcfolder \"$dir\" -volname \"$PROJECT_NAME\" \"$dmg\"\nhdiutil internet-enable -yes \"$dmg\"\nrm -rf \"$dir\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		28FACC790CD03BBB007B7918 /* Sources */ = {
@@ -863,9 +904,22 @@
 			target = 28FACCA70CD0CF3E007B7918 /* GeneralPrefsPane */;
 			targetProxy = 28FACCAE0CD0CF64007B7918 /* PBXContainerItemProxy */;
 		};
+		2CF4BB3B106A3BC300B68FF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Simple Comic */;
+			targetProxy = 2CF4BB3A106A3BC300B68FF5 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		280E16CE0C52719200FC7439 /* Help */ = {
+			isa = PBXVariantGroup;
+			children = (
+				280E168C0C52477300FC7439 /* English */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
 		281314520C0A7D2D00EC007B /* TSSTSessionWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -920,14 +974,6 @@
 				287A34760DF0F8C6008BAEDA /* English */,
 			);
 			name = KeyboardPrefPaneView.nib;
-			sourceTree = "<group>";
-		};
-		28F6603B1067255600EC8A34 /* Help */ = {
-			isa = PBXVariantGroup;
-			children = (
-				28F6603C1067255600EC8A34 /* English */,
-			);
-			name = Help;
 			sourceTree = "<group>";
 		};
 		28FACB920CD01F65007B7918 /* GeneralPrefPaneView.nib */ = {
@@ -1093,6 +1139,34 @@
 			};
 			name = Default;
 		};
+		2CF4BB23106A3AC800B68FF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = SimpleComic.dmg;
+			};
+			name = Debug;
+		};
+		2CF4BB24106A3AC800B68FF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = SimpleComic.dmg;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		2CF4BB25106A3AC800B68FF5 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = SimpleComic.dmg;
+			};
+			name = Default;
+		};
 		FA7257E308A6CDEB006A2A19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1191,27 +1265,18 @@
 			buildSettings = {
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = "";
-				HEADER_SEARCH_PATHS = (
-					unrar,
-					unzip,
-				);
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
 		FA7257E808A6CDEB006A2A19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				GCC_OPTIMIZATION_LEVEL = 1;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREFIX_HEADER = "";
-				HEADER_SEARCH_PATHS = (
-					unrar,
-					unzip,
-				);
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
@@ -1219,11 +1284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREFIX_HEADER = "";
-				HEADER_SEARCH_PATHS = (
-					unrar,
-					unzip,
-				);
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx10.6;
 			};
 			name = Default;
 		};
@@ -1246,6 +1307,16 @@
 				28FACCAB0CD0CF3E007B7918 /* Debug */,
 				28FACCAC0CD0CF3E007B7918 /* Release */,
 				28FACCAD0CD0CF3E007B7918 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		2CF4BB32106A3AC900B68FF5 /* Build configuration list for PBXAggregateTarget "SimpleComic.dmg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CF4BB23106A3AC800B68FF5 /* Debug */,
+				2CF4BB24106A3AC800B68FF5 /* Release */,
+				2CF4BB25106A3AC800B68FF5 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;

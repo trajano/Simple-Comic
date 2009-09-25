@@ -123,6 +123,7 @@
         uses has mouse events turned off by default */
     [exposeBezel setIgnoresMouseEvents: NO];
     [exposeBezel setFloatingPanel: YES];
+	[exposeBezel setWindowController: self];
     [[self window] setAcceptsMouseMovedEvents: YES];
     /*  This needs to be set so that mouse moved events from the fullscreen window
         are passed to its delegate, this window controller */
@@ -177,7 +178,6 @@
 	[newArea release];
 	[jumpField setDelegate: self];
     [self restoreSession];
-//	[self fullscreen];
 }
 
 
@@ -238,7 +238,7 @@
     if([[pageController arrangedObjects] count] <= 0)
     {
         SetSystemUIMode(kUIModeNormal, 0);
-        [self prepareToEnd];
+        [[self window] close];
         return;
     }
 	
@@ -486,7 +486,6 @@
 	pageSelectionInProgress = YES;
 	int selection = [pageView selectPageWithCrop: NO];
 	pageSelectionInProgress = NO;
-	
 	if(selection != -1)
 	{
 		int index = [pageController selectionIndex];
@@ -860,6 +859,7 @@
 	
 	int selection = [pageView selectPageWithCrop: YES];
 	NSRect cropRect = [pageView imageCropRectangle];
+	pageSelectionInProgress = NO;
 	if(selection != -1)
 	{
 		int index = [pageController selectionIndex];
@@ -920,7 +920,6 @@
 			}
 		}
 	}
-	pageSelectionInProgress = NO;
 	[session setValue: [NSNumber numberWithInt: previousZoom] forKey: TSSTZoomLevel];
 	[session setValue: [NSNumber numberWithInt: scalingOption] forKey: TSSTPageScaleOptions];
 	
@@ -1544,23 +1543,17 @@ images are currently visible and then skips over them.
 }
 
 
-
-- (void)prepareToEnd
+- (BOOL)windowShouldClose:(id)sender
 {
+	closing = YES;
 	[[self window] setAcceptsMouseMovedEvents: NO];
 	[fullscreenWindow setAcceptsMouseMovedEvents: NO];
 	[mouseMovedTimer invalidate];
 	mouseMovedTimer = nil;
     [NSCursor unhide];
     SetSystemUIMode(kUIModeNormal, 0);
-	closing = YES;
-}
-
-
-- (BOOL)windowShouldClose:(id)sender
-{
-	[self prepareToEnd];
 	[[NSNotificationCenter defaultCenter] postNotificationName: TSSTSessionEndNotification object: self];
+	
     return YES;
 }
 

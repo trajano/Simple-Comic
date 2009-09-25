@@ -51,7 +51,10 @@ typedef struct {
 	NSRect secondPageRect;
 	NSImage	* firstPageImage;
 	NSImage	* secondPageImage;
-    
+
+		// Double click handling code based on http://lists.apple.com/archives/Cocoa-dev//2007/Feb/msg00164.html
+    NSTimeInterval lastMouseDown; // Stores the time the last mouse down has occurred
+	
     int scrollKeys; // Stores which arrow keys are currently depressed this enables multi axis keyboard scrolling.
     NSTimer * scrollTimer; // Timer that fires in between each keydown event to smooth out the scrolling.
 
@@ -132,6 +135,9 @@ typedef struct {
 
 - (void)pageUp;
 - (void)pageDown;
+
+- (void)handleSingleClick:(NSEvent *)inTimer;
+- (void)handleDoubleClick:(NSTimer *)theEvent;
 
 - (int)selectPageWithCrop:(BOOL)crop;
 - (NSRect)imageCropRectangle;
