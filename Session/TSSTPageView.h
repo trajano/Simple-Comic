@@ -136,8 +136,8 @@ typedef struct {
 - (void)pageUp;
 - (void)pageDown;
 
-- (void)handleSingleClick:(NSEvent *)inTimer;
-- (void)handleDoubleClick:(NSTimer *)theEvent;
+- (void)handleSingleClick:(NSTimer *)inTimer;
+- (void)handleDoubleClick:(NSEvent *)theEvent;
 
 - (int)selectPageWithCrop:(BOOL)crop;
 - (NSRect)imageCropRectangle;

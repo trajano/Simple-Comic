@@ -220,7 +220,7 @@ static NSCache * thumbnailCache = nil;
 {
 	[thumbLock lock];
 	NSImage * managedImage = [self pageImage];
-	NSImage * thumbnail;
+	NSImage * thumbnail = nil;
 	NSSize pixelSize = [managedImage size];
 	if(managedImage)
 	{
@@ -233,11 +233,12 @@ static NSCache * thumbnailCache = nil;
 					   operation: NSCompositeSourceOver 
 						fraction: 1.0];
 		[temp unlockFocus];
-		thumbnail = temp;
+		thumbnail = [[temp TIFFRepresentation] retain];
+		[temp release];
 	}
 	[thumbLock unlock];
 	
-	return [[[thumbnail TIFFRepresentation] retain] autorelease];
+	return [thumbnail autorelease];
 }
 
 
@@ -261,6 +262,7 @@ static NSCache * thumbnailCache = nil;
     
     if(!imageFromData || NSEqualSizes(NSZeroSize, imageSize))
     {
+		[imageFromData release];
         imageFromData = nil;
     }
     else
